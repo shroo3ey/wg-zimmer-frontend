@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* Leaflet CSS für OpenStreetMap */
+@import 'leaflet/dist/leaflet.css';
+
+/* Custom fonts via Google Fonts CDN */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+/* ─── Design Tokens ─────────────────────────────────────────────────── */
+@theme {
+  --color-background: #F1F6F9;
+  --color-foreground: #212A3E;
+  --color-primary:    #394867;
+  --color-muted:      #9BA4B5;
+  --color-surface:    #ffffff;
+}
+
+:root {
+  --background: #F1F6F9;
+  --foreground: #212A3E;
+  --primary:    #394867;
+  --muted:      #9BA4B5;
+  --surface:    #ffffff;
+  --border:     #9ba4b559;
+}
+
+button {
+    @apply cursor-pointer;
+}
+
+/* Base typography */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+/* Staggered card animations */
+.card-stagger:nth-child(1) { animation-delay: 0ms; }
+.card-stagger:nth-child(2) { animation-delay: 80ms; }
+.card-stagger:nth-child(3) { animation-delay: 160ms; }
+.card-stagger:nth-child(4) { animation-delay: 240ms; }
+.card-stagger:nth-child(5) { animation-delay: 320ms; }
+.card-stagger:nth-child(6) { animation-delay: 400ms; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F1F6F9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9BA4B5;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #394867;
+}
+
+/* Loading skeleton shimmer */
+.skeleton-shimmer {
+    background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
